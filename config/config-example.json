@@ -1,0 +1,44 @@
+{
+  "topics": [
+    {
+      "clickhouse_config": {
+        "user": "insert_user",
+        "password": "some_password",
+        "host": "127.0.0.1:9009",
+        "write_timeout": "10",
+        "table": "db.small_table_local",
+        "ignore_columns": [ "insert_time" ]
+      },
+      "insert_format": "Values",
+      "flush_count": 10,
+      "flush_interval_seconds": 60,
+      "topic": "first_topic"
+    },
+    {
+      "clickhouse_config": {
+        "user": "insert_user",
+        "password": "some_password",
+        "host": "127.0.0.1:9000",
+        "write_timeout": "180",
+        "table": "db.table2_local",
+        "ignore_columns": []
+      },
+      "insert_format": "Native",
+      "flush_count": 1000,
+      "flush_interval_seconds": 360,
+      "topic": "second_topic"
+    }
+  ],
+  "pool_timeout": 1000000,
+  "to": "realtime",
+  "consumer_config": {
+    "bootstrap.servers": "kafka-0.host:9092,kafka-1.host:9092",
+    "broker.address.family": "v4",
+    "session.timeout.ms": "60000",
+    "auto.offset.reset": "latest",
+    "group.id": "my_consumer_group_name",
+    "client.id": "my_consumer_client_id",
+    "socket.receive.buffer.bytes": "99999999",
+    "socket.keepalive.enable": "true"
+  }
+}
