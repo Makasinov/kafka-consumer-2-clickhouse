@@ -1,6 +1,16 @@
-[![coverage report](https://gitlab.tubecorporate.com/push/kafka-consumer/badges/master/coverage.svg)](https://gitlab.tubecorporate.com/push/kafka-consumer/-/commits/master)
-[![pipeline status](https://gitlab.tubecorporate.com/push/kafka-consumer/badges/master/pipeline.svg)](https://gitlab.tubecorporate.com/push/kafka-consumer/-/commits/master)
-
 # Kafka-Consumer
 
-Kafka consumer based on forked repo example from https://github.com/confluentinc/confluent-kafka-go
+## Envs
+
+| Variable | Description                         |
+|:---------|:------------------------------------|
+| Debug    | (default: false) Enables debug mode |
+
+## Endpoints
+
+| Path | Description   |
+|:-----|:---|
+| /metrics     |  For prometheus  |
+
+Run only in container (can use `$ make container-build && make container-run`)  
+Mount volume to use config and see all consumed batches `-v $(pwd)/config/:/var/log/kafka-consumer/`

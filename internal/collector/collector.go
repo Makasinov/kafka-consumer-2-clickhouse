@@ -136,7 +136,7 @@ func (t *Table) insertDump(path string) {
 			TODO: Или ещё че
 		*/
 		// TODO: А и ещё прикрутить слак алёрт
-		// Хуле так дохуя делать то ебана
+		// Хуле так дохуя делать то ебана :C
 		fmt.Println("Insert error. DEBUG INFO:")
 		fmt.Println(err.Error())
 		fmt.Println(err.(*exec.ExitError).ExitCode())
